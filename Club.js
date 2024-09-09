@@ -322,57 +322,57 @@ app.delete("/eliminar/users/:id", async (req, res) => {
   }
 });
 
-// Rutas CRUD de Genero
-app.get("/genero", async (req, res) => {
-  try {
-    const genero = await Genero.find();
-    res.json(genero);
-  } catch (error) {
-    console.error("Error al obtener todos los géneros", error);
-    res.status(500).json({ error: "Error interno del servidor" });
-  }
-});
+// // Rutas CRUD de Genero
+// app.get("/genero", async (req, res) => {
+//   try {
+//     const genero = await Genero.find();
+//     res.json(genero);
+//   } catch (error) {
+//     console.error("Error al obtener todos los géneros", error);
+//     res.status(500).json({ error: "Error interno del servidor" });
+//   }
+// });
 
-app.post("/genero", async (req, res) => {
-  try {
-    const newGenero = new Genero(req.body);
-    await newGenero.save();
-    res.status(201).json(newGenero);
-  } catch (error) {
-    console.error("Error al crear un nuevo género", error);
-    res.status(500).json({ error: "Error interno del servidor" });
-  }
-});
+// app.post("/genero", async (req, res) => {
+//   try {
+//     const newGenero = new Genero(req.body);
+//     await newGenero.save();
+//     res.status(201).json(newGenero);
+//   } catch (error) {
+//     console.error("Error al crear un nuevo género", error);
+//     res.status(500).json({ error: "Error interno del servidor" });
+//   }
+// });
 
-app.put("/genero/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    const updatedGenero = await Genero.findByIdAndUpdate(id, req.body, {
-      new: true,
-    });
-    if (!updatedGenero) {
-      return res.status(404).json({ error: "Género no encontrado" });
-    }
-    res.json(updatedGenero);
-  } catch (error) {
-    console.error("Error al actualizar el género", error);
-    res.status(500).json({ error: "Error interno del servidor" });
-  }
-});
+// app.put("/genero/:id", async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const updatedGenero = await Genero.findByIdAndUpdate(id, req.body, {
+//       new: true,
+//     });
+//     if (!updatedGenero) {
+//       return res.status(404).json({ error: "Género no encontrado" });
+//     }
+//     res.json(updatedGenero);
+//   } catch (error) {
+//     console.error("Error al actualizar el género", error);
+//     res.status(500).json({ error: "Error interno del servidor" });
+//   }
+// });
 
-app.delete("/genero/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    const deletedGenero = await Genero.findByIdAndDelete(id);
-    if (!deletedGenero) {
-      return res.status(404).json({ error: "Género no encontrado" });
-    }
-    res.json(deletedGenero);
-  } catch (error) {
-    console.error("Error al eliminar el género", error);
-    res.status(500).json({ error: "Error interno del servidor" });
-  }
-});
+// app.delete("/genero/:id", async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const deletedGenero = await Genero.findByIdAndDelete(id);
+//     if (!deletedGenero) {
+//       return res.status(404).json({ error: "Género no encontrado" });
+//     }
+//     res.json(deletedGenero);
+//   } catch (error) {
+//     console.error("Error al eliminar el género", error);
+//     res.status(500).json({ error: "Error interno del servidor" });
+//   }
+// });
 
 // Rutas CRUD de Clasificación
 app.get("/clasificacion", async (req, res) => {
